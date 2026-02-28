@@ -1,0 +1,280 @@
+/* styles.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, system-ui, sans-serif;
+}
+
+/* Анимированный градиентный фон */
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0f0c1f, #1b1b3a, #2a1e3c, #1f3a4b);
+    background-size: 400% 400%;
+    animation: gradientShift 18s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+.card {
+    max-width: 1200px;
+    width: 100%;
+    background: rgba(20, 15, 30, 0.7);
+    backdrop-filter: blur(12px);
+    border-radius: 56px;
+    padding: 40px 35px;
+    box-shadow: 0 30px 50px rgba(0, 0, 0, 0.7), 0 0 0 2px rgba(255, 215, 0, 0.2) inset;
+    border: 1px solid rgba(255, 220, 150, 0.3);
+    color: #f5edff;
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 40px 70px rgba(255, 200, 100, 0.3), 0 0 0 2px #ffd966 inset;
+}
+
+/* Заголовок */
+h1 {
+    font-size: 4.5rem;
+    font-weight: 900;
+    letter-spacing: 6px;
+    text-shadow: 0 0 15px cyan, 0 0 30px blue;
+    line-height: 1;
+    margin-bottom: 5px;
+    animation: flicker 3s infinite;
+}
+
+@keyframes flicker {
+    0% { text-shadow: 0 0 10px cyan, 0 0 20px blue; }
+    50% { text-shadow: 0 0 20px magenta, 0 0 40px purple; }
+    100% { text-shadow: 0 0 10px cyan, 0 0 20px blue; }
+}
+
+.sub-title {
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin-bottom: 25px;
+    color: #ffe2a4;
+}
+
+/* Кнопки */
+.button-group {
+    display: flex;
+    gap: 30px;
+    margin: 30px 0 40px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 200, 100, 0.6);
+    color: #ffdfaa;
+    font-weight: 600;
+    font-size: 1.8rem;
+    padding: 15px 45px;
+    border-radius: 60px;
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+}
+
+.btn:hover {
+    background: rgba(255, 215, 0, 0.2);
+    color: white;
+    border-color: gold;
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 0 0 40px gold;
+}
+
+/* Информационный блок */
+.info-block {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 25px 30px;
+    border-radius: 50px;
+    margin: 35px 0;
+    font-size: 1.8rem;
+    border-left: 10px solid orange;
+    backdrop-filter: blur(4px);
+}
+
+.info-block p {
+    margin: 10px 0;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #ff7b7b;
+    font-size: 2rem;
+}
+
+.new-price {
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: #aaffaa;
+    text-shadow: 0 0 20px lime;
+    margin-left: 20px;
+}
+
+.resolution {
+    font-size: 3rem;
+    background: linear-gradient(45deg, gold, orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+}
+
+.feature {
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Галерея картинок */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 60px;
+}
+
+.image-card {
+    flex: 1 1 280px;
+    max-width: 350px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 48px;
+    padding: 20px 20px 30px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 180, 60, 0.6);
+    transition: 0.2s;
+}
+
+.image-card:hover {
+    border-color: #ffb347;
+    box-shadow: 0 20px 30px rgba(255, 140, 0, 0.5);
+}
+
+/* Базовая стилизация изображений */
+.image-wrapper {
+    overflow: hidden;
+    border-radius: 36px;
+    margin-bottom: 20px;
+    position: relative;
+    background: #221c2e;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+    transition: 0.2s;
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.1), filter 0.2s;
+    filter: brightness(0.95);
+    will-change: transform;
+}
+
+/* Эффект наведения на wrapper — картинка плавно увеличивается */
+.image-wrapper:hover img {
+    transform: scale(1.07);
+    filter: brightness(1.1);
+}
+
+/* ИНДИВИДУАЛЬНЫЕ АНИМАЦИИ ДЛЯ КАРТИНОК ПО ХОВЕРУ */
+
+/* Карточка 1: при наведении на карточку — экран планшета двигается (сдвиг внутри) */
+.image-card:nth-child(1) .image-wrapper:hover img {
+    animation: shakeScreen 0.25s infinite alternate;
+    transform: scale(1.1) translateX(2px);
+}
+
+@keyframes shakeScreen {
+    0% { transform: scale(1.1) translateX(0px) translateY(0px); }
+    100% { transform: scale(1.1) translateX(5px) translateY(3px); }
+}
+
+/* Карточка 2: машины едут (имитация движения фона) */
+.image-card:nth-child(2) .image-wrapper {
+    background: linear-gradient(90deg, #3a2c1f, #5e4b33);
+    position: relative;
+    isolation: isolate;
+}
+
+.image-card:nth-child(2) .image-wrapper::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(90deg, 
+        transparent, 
+        transparent 25px, 
+        rgba(255, 200, 50, 0.1) 25px, 
+        rgba(255, 200, 50, 0.2) 40px);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.image-card:nth-child(2) .image-wrapper:hover::after {
+    opacity: 1;
+    animation: driveCars 1.2s linear infinite;
+}
+
+@keyframes driveCars {
+    0% { background-position: 0 0; }
+    100% { background-position: 80px 0; }
+}
+
+/* дополнительный эффект на само изображение машин */
+.image-card:nth-child(2) .image-wrapper:hover img {
+    animation: bgMove 2s linear infinite;
+    transform: scale(1.07);
+}
+
+@keyframes bgMove {
+    0% { object-position: 0 0; }
+    100% { object-position: 20px 0; }
+}
+
+/* Карточка 3: планшет падает с окна — лёгкое вертикальное смещение */
+.image-card:nth-child(3) .image-wrapper:hover img {
+    animation: fallShake 0.4s infinite alternate ease-in;
+    transform: scale(1.07) translateY(6px);
+}
+
+@keyframes fallShake {
+    0% { transform: scale(1.07) translateY(0px) rotate(0deg); }
+    100% { transform: scale(1.07) translateY(15px) rotate(3deg); }
+}
+
+/* подписи */
+.image-caption {
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #ffdcaa;
+}
+
+/* адаптация */
+@media (max-width: 750px) {
+    h1 { font-size: 3rem; }
+    .btn { font-size: 1.3rem; padding: 12px 25px; }
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+    color: #ac9fcd;
+    font-size: 1.4rem;
+}
